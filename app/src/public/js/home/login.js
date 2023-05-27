@@ -11,17 +11,26 @@ function login(){
         id : id.value,
         pw : pw.value,
     };
-    console.log(req)
+
+    fetch("/login", { 
+     method: "POST",
+     headers: {
+            "Content-Type" : "application/json",
+        },
+
+        body: JSON.stringify(req),
+    }).then((res) => res.json())
+    .then((res) => {
+     if (res.success){
+        location.bref = "/";
+         } else {
+            alert(res.msg);
+         }
+    })
+    .catch((err) => {
+        console.error("로그인 중 에러 발생");
+    });
 }
-
-fetch("/login", {
-    method: "POST",
-    headers: {
-        "Content-Type" : "application/json",
-    },
-
-    body: JSON.stringify(req),
-})
     
 //DOM -> Document Object Model이 js에서 html을 가져와 동작하게 함
 
