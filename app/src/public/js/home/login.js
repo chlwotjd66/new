@@ -13,6 +13,15 @@ function login(){
     };
     console.log(req)
 }
+
+fetch("/login", {
+    method: "POST",
+    headers: {
+        "Content-Type" : "application/json",
+    },
+
+    body: JSON.stringify(req),
+})
     
 //DOM -> Document Object Model이 js에서 html을 가져와 동작하게 함
 
