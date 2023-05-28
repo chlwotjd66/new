@@ -13,3 +13,4 @@ router.post("/login", ctrl.process.login);
 router.post("/register", ctrl.process.register);
 
 module.exports = router;
+
